@@ -14,7 +14,7 @@ namespace Paymentsense.Coding.Challenge.Api
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseUrls("http://*:5000");
+                    webBuilder.UseUrls("http://*:5000", "https://*:5001");
                     webBuilder.UseStartup<Startup>();
                 });
     }
