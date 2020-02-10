@@ -1,7 +1,9 @@
-﻿using FluentAssertions;
+using System.Collections.Generic;
+using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Paymentsense.Coding.Challenge.Api.Controllers;
+using Paymentsense.Coding.Challenge.Api.Models;
 using Xunit;
 
 namespace Paymentsense.Coding.Challenge.Api.Tests.Controllers
@@ -16,7 +18,8 @@ namespace Paymentsense.Coding.Challenge.Api.Tests.Controllers
             var result = controller.Get().Result as OkObjectResult;
 
             result.StatusCode.Should().Be(StatusCodes.Status200OK);
-            result.Value.Should().Be("Paymentsense Coding Challenge!");
+            var countries = result.Value.Should().BeAssignableTo<IEnumerable<Country>>();
+            countries.Count().Should().BeGreaterThan(0);
         }
     }
 }
