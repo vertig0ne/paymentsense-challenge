@@ -19,7 +19,6 @@ namespace Paymentsense.Coding.Challenge.Api.Tests.Controllers
 
             result.StatusCode.Should().Be(StatusCodes.Status200OK);
             var countries = result.Value.Should().BeAssignableTo<IEnumerable<Country>>();
-            countries.Count().Should().BeGreaterThan(0);
         }
     }
 }
