@@ -36,12 +36,9 @@ export class CountriesComponent implements OnInit {
   }
 
   public openDialog(data: any): void {
-    let dialogRef = this.dialog.open(CountryDialogComponent, {
+    this.dialog.open(CountryDialogComponent, {
       width: '600px',
       data,
-    });
-    dialogRef.componentInstance.event.subscribe((result) => {
-
     });
   }
 
