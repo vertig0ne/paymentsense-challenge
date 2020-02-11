@@ -1,19 +1,19 @@
 .card {
     min-width: 80%;
-  }
-  
-  .countries-container {
+}
+
+.countries-container {
     display: flex;
     flex-direction: column;
     max-height: 1000px;
     min-width: 100%;
-  }
-  
-  .mat-table {
+}
+
+.mat-table {
     overflow: auto;
     max-height: 1000px;
-  }
-  
-  a {
+}
+
+a {
     cursor: pointer;
-  }
+}
