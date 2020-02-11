@@ -20,6 +20,7 @@ namespace Paymentsense.Coding.Challenge.Api
         {
             services.AddControllers();
             services.AddHealthChecks();
+            services.AddMemoryCache();
             services.AddCors(options =>
             {
                 options.AddPolicy("PaymentsenseCodingChallengeOriginPolicy", builder =>
