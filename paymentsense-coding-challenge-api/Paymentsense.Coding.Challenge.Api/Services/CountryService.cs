@@ -9,9 +9,8 @@ namespace Paymentsense.Coding.Challenge.Api.Services
 {
     public class CountryService : ICountryService
     {
-        public Country[] Countries;
-
-        public CountryService()
+        private ICacheService<Country[]> _cache = new CacheService<Country[]>();
+        private Country[] _getCountriesFromSource()
         {
             try
             {
@@ -21,8 +20,8 @@ namespace Paymentsense.Coding.Challenge.Api.Services
 
                 response.EnsureSuccessStatusCode();
                 string res = response.Content.ReadAsStringAsync().Result;
-                Countries = JsonSerializer.Deserialize<List<Country>>(res).ToArray();
                 client.Dispose();
+                return JsonSerializer.Deserialize<List<Country>>(res).ToArray();
             }
             catch (Exception ex)
             {
@@ -33,7 +32,7 @@ namespace Paymentsense.Coding.Challenge.Api.Services
 
         public IEnumerable<Country> GetCountries()
         {
-            return Countries;
+            return _cache.GetOrCreate("Countries", () => this._getCountriesFromSource());
         }
     }
 }
