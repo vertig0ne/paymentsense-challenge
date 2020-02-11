@@ -1,13 +1,45 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <img width="50%" alt="Paymentsense Logo" src="../assets/paymentsense-logo.svg">
-  <h1>
-    {{ title }}
-  </h1>
-  <h2>... Paymentsense Coding Challenge API is <fa-icon [icon]=paymentsenseCodingChallengeApiActiveIcon
-                                                        [styles]="{ 'stroke': paymentsenseCodingChallengeApiActiveIconColour, 'color': paymentsenseCodingChallengeApiActiveIconColour }"></fa-icon> ...</h2>
-</div>
-
-<app-table></app-table>
-
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="navigation">
+   <mat-nav-list>
+    <a mat-list-item routerLink="/">
+      <mat-icon class="icon">input</mat-icon>
+      <span class="label">Health</span>
+    </a>
+    <a mat-list-item routerLink="/countries">
+      <mat-icon class="icon">home</mat-icon>
+        <span class="label">Countries</span>
+    </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+     <div fxHide.gt-xs>
+       <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+     <div>
+      <img width="90%" alt="Paymentsense Logo" src="../assets/paymentsense-logo.svg">
+     </div>
+     <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+            <li>
+                <a routerLink="/">
+                  <mat-icon class="icon">input</mat-icon>
+                  <span  class="label">Health</span>
+                 </a>
+            </li>
+            <li>
+              <a routerLink="/countries">
+                  <mat-icon class="icon">home</mat-icon>
+                  <span class="label">Countries</span>
+              </a>
+            </li>
+        </ul>
+     </div>
+    </mat-toolbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
