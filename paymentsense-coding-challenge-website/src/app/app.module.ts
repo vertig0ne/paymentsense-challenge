@@ -12,12 +12,17 @@ import { PaymentsenseCodingChallengeApiService } from './services';
 import { AppComponent } from './app.component';
 import { CountriesComponent } from './countries/countries.component';
 import { HealthComponent } from './health/health.component';
+import { CountryDialogComponent } from './country-dialog/country-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CountriesComponent,
     HealthComponent,
+    CountryDialogComponent,
+  ],
+  entryComponents: [
+    CountryDialogComponent,
   ],
   imports: [
     BrowserModule,

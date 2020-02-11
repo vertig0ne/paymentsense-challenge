@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>{{ data.name }}</h1>
+<div mat-dialog-content>
+    <div>Population: <span>{{ formatPopulation(data.population) }}</span></div>
+    <div>Time Zones: <span>{{ data.timezones.join(', ') }}</span></div>
+    <div>Spoken Languages: <span>{{ formatLanguages(data.languages) }}</span></div>
+    <div>Currencies: <span>{{ formatCurrencies(data.currencies) }}</span></div>
+    <div>Capital City: <span>{{ data.capital }}</span></div>
+    <div>Borders With: <span>{{ data.borders.join(', ') }}</span></div>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button class="close" (click)="onNoClick()" color="warn">Close</button>
+</div>

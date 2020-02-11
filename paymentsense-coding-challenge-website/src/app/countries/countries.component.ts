@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { PageEvent, MatPaginator } from '@angular/material/paginator';
-import { PaymentsenseCodingChallengeApiService } from '../services';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { PaymentsenseCodingChallengeApiService } from '../services';
+import { CountryDialogComponent } from '../country-dialog/country-dialog.component';
 
 @Component({
   selector: 'app-countries',
@@ -10,10 +12,10 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class CountriesComponent implements OnInit {
 
-  constructor(private paymentsenseCodingChallengeApiService: PaymentsenseCodingChallengeApiService) { }
+  constructor(public dialog: MatDialog, private paymentsenseCodingChallengeApiService: PaymentsenseCodingChallengeApiService) { }
 
   public array: any;
-  public displayedColumns = ['name', 'flag', 'delete'];
+  public displayedColumns = ['name', 'flag', 'more'];
   public dataSource: any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -31,6 +33,16 @@ export class CountriesComponent implements OnInit {
     this.currentPage = e.pageIndex;
     this.pageSize = e.pageSize;
     this.iterator();
+  }
+
+  public openDialog(data: any): void {
+    let dialogRef = this.dialog.open(CountryDialogComponent, {
+      width: '600px',
+      data,
+    });
+    dialogRef.componentInstance.event.subscribe((result) => {
+
+    });
   }
 
   private getData() {
