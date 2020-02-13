@@ -17,4 +17,6 @@ Task 3) Adding caching on API, this took longer than expected and refactored the
 
 Task 4) Refactored the website slightly to allow for material design layouts across the website, this made life a little easier as I did not have to design the table or pagination components, which saved reinventing the wheel, although in the future I would have probably used bootstrap as this is what I am more familiar with.
 
-Task 5) In progress.....
+Task 5) No real challenges, had to make a few internal functions that would format the data correctly for some of the outputs as they were embedded within objects within the country object itself.
+
+Due to time constraints, I was not able to complete the code with testing capabilities. However confirmed all parts of the code did indeed "work". Had I had another 2-4 hours to complete the testing, it would be complete. I was also looking into adding sessionStorage into the website portion of the code to reduce calls to the API until the browser tab was closed (which in hindseight should have been done instead of at the API level).
